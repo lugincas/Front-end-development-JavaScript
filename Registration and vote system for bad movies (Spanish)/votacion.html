@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Luis Ginés Casanova de Utrilla -->
+    <meta charset="UTF-8" />
+    <title>Votación de películas</title>
+    <script src="votacion.js"></script> <!-- Asociamos nuestro JS -->
+    <style type="text/css">
+        body { /* Estilo de nuestro documento (sólo cambiamos el tipo de letra, para mejorar la legibilidad) */
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        header { /* Estilo de nuestro encabezado */
+            background-color: #FFD55A;
+            color: #293250;
+            padding: 5px 25px;
+        }
+
+        a { /* Estilo para los enlaces */
+            font-size: 1em;
+            font-weight: bold;
+            text-decoration: none;
+            background-color: #6DD47E;
+            color: #293250;
+            padding: 15px 25px;
+            border-radius: 20px;
+            border: 2px solid #000000;
+        }
+
+        a:hover { /* Estilo para el efecto de pasar el ratón por encima de los enlaces */
+            background-color: #FFD55A;
+        }
+
+        label { /* Estilo de las etiquetas */
+            margin-bottom: 5px;
+        }
+
+        input,
+        select { /* Estilo y dimensiones para los inputs y posibles select */
+            margin: 5px;
+        }
+
+        #calificacion,
+        #enviosCorrectos,
+        #enviosFallidos { /* Dimensión compartida por las cajas de texto de la calificación y los contadores de envíos */
+            width: 50px;
+        }
+
+        #enviosCorrectos { /* Estilo para la caja de texto del contador de envíos correctos */
+            border: solid 2px #1ec112;
+        }
+
+        #enviosFallidos { /* Estilo para la caja de texto del contador de envíos incorrectos */
+            border: solid 2px #ff0000;
+        }
+
+        fieldset { /* Estilo y dimensiones para el espacio dedicado al formulario */
+            background: #ffde7a;
+            width: 300px;
+            border-radius: 20px;
+            border: 1px solid #000000;
+            padding: 20px;
+        }
+
+        .correcto { /* Estilo correspondiente a las validaciones correctas (fondo y bordes en verde) */
+            border: solid 2px #1ec112;
+            background-color: #92ff8a;
+            accent-color: #92ff8a;
+            /* Con accent-color añadimos color verde al checked, indicando que es positivo en el momento en que lo pulsamos */
+        }
+
+        .error { /* Estilo correspondiente a las validaciones incorrectas (fondo y bordes en rojo) */
+            border: solid 2px #ff0000;
+            background-color: #ff8a8a;
+        }
+
+        .resultadoError { /* Estilo correspondiente a los datos erróneos en la salida de información (div del resultado) */
+            width: fit-content;
+            border-radius: 20px;
+            padding: 15px 25px;
+            border: 1px solid #ff0000;
+        }
+
+        .resultadoCorrecto { /* Estilo correspondiente a los datos correctos en la salida de información (div del resultado) */
+            width: fit-content;
+            border-radius: 20px;
+            padding: 15px 25px;
+            border: solid 2px #1ec112;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h2>Festival anual de cine malo, pero malísimo - Cuarta tarea de Desarrollo Web en Entorno Cliente</h2>
+        <h2>Luis Ginés Casanova de Utrilla</h2>
+    </header>
+    <hr>
+    <br>
+    <a href="index.html">Volver a la página principal</a>
+    <br>
+    <br>
+    <h2>Votación de películas</h2>
+    <fieldset>
+        <form name="formulario" id="formulario" action="" method="get">
+            <div id="divSeleccion">
+                <div>
+                    <input type="radio" id="peliDesastre" name="seleccionPelicula" value="peliDesastre" required /> <!-- Mediante el atributo "required" indicamos que son campos obligatorios. Aún así, para poder ofrecer una salida de errores personalizada, también se controla esa obligatoriedad mediante el JS -->
+                    <label id="peliDesastreEtiqueta" for="peliDesastre">Disaster Movie (2008)</label> <!-- El ID de la etiqueta es el mismo que el del input-radio añadiendo la palabra "Etiqueta" al final para poder asociarlos luego con el mismo título de película al que corresponde ese input concreto -->
+                </div>
+
+                <div>
+                    <input type="radio" id="peliCasa" name="seleccionPelicula" value="peliCasa" />
+                    <label id="peliCasaEtiqueta" for="peliCasa"  required>House of the Dead (2003)</label>
+                </div>
+
+                <div>
+                    <input type="radio" id="peliMascara" name="seleccionPelicula" value="peliMascara" />
+                    <label id="peliMascaraEtiqueta" for="peliMascara" required>La Máscara 2 (2005)</label>
+                </div>
+
+                <div>
+                    <input type="radio" id="peliVelocipastor" name="seleccionPelicula" value="peliVelocipastor" />
+                    <label id="peliVelocipastorEtiqueta" for="peliVelocipastor" required>El Velocipastor (2018)</label>
+                </div>
+
+                <div>
+                    <input type="radio" id="peliDragon" name="seleccionPelicula" value="peliDragon" />
+                    <label id="peliDragonEtiqueta" for="peliDragon" required>Dragonball Evolution (2009)</label>
+                </div>
+            </div>
+            <hr>
+            <label for="calificacion">Calificación:</label>
+            <input type="number" id="calificacion" name="calificacion" min="0" max="10" required /> <!-- Mediante los atributos "min" y "max" establecemos los límites para la calificación que podemos introducir -->
+            <hr>
+            <label for="descripcion">Descripción del argumento:</label>
+            <textarea id="descripcion" name="descripcion" rows="5" cols="40"
+                placeholder="Escribe aquí la descripción del argumento..." disabled></textarea> <!-- Deshabilitamos la descripción por defecto con "disabled" y mediante los eventos en nuestro JS controlaremos su habilitación -->
+            <hr>
+            <input type="reset" name="borrar" id="borrar" value="Borrar" />
+            <input type="submit" name="enviar" id="enviar" value="Enviar" />
+            <hr>
+            <label for="enviosCorrectos">Envíos con éxito</label>
+            <input type="text" name="enviosCorrectos" id="enviosCorrectos" readonly="readonly" /> <!-- Utilizamos "readonly" para hacer que este input-text no sea editable y sólo ofrezca información -->
+            <br>
+            <label for="enviosFallidos">Envíos sin éxito</label>
+            <input type="text" name="enviosFallidos" id="enviosFallidos" readonly="readonly"/>
+        </form>
+    </fieldset>
+    <br>
+    <div name="resultado" id="resultado"></div>
+</body>
+
+</html>

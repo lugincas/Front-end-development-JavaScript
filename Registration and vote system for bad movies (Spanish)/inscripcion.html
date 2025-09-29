@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Luis Ginés Casanova de Utrilla -->
+    <meta charset="UTF-8" />
+    <title>Formulario de inscripción</title>
+    <script src="inscripcion.js"></script> <!-- Asociamos nuestro JS -->
+    <style type="text/css">
+        body { /* Estilo de nuestro documento (sólo cambiamos el tipo de letra, para mejorar la legibilidad) */
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        header { /* Estilo de nuestro encabezado */
+            background-color: #FFD55A;
+            color: #293250;
+            padding: 5px 25px;
+        }
+
+        a { /* Estilo para los enlaces */
+            font-size: 1em;
+            font-weight: bold;
+            text-decoration: none;
+            background-color: #6DD47E;
+            color: #293250;
+            padding: 15px 25px;
+            border-radius: 20px;
+            border: 2px solid #000000;
+        }
+
+        a:hover { /* Estilo para el efecto de pasar el ratón por encima de los enlaces */
+            background-color: #FFD55A;
+        }
+
+        label { /* Estilo de las etiquetas */
+            width: 200px;
+            float: left;
+            margin-bottom: 5px;
+        }
+
+        input,
+        select { /* Estilo y dimensiones para los inputs y posibles select */
+            width: 200px;
+            float: left;
+            margin-bottom: 5px;
+        }
+
+        #repetirContrasenia{ /* Para este input concreto (el del campo de repetir contraseña), dejamos espacio para el botón de Ver contraseña */
+            width: 160px; 
+        }
+
+        #verContrasenia{/* Colocamos y redimensionamos el botón para que quede de manera estética donde queremos */
+            width:fit-content;
+            margin-left: 5px;
+        }
+
+        fieldset { /* Estilo y dimensiones para el espacio dedicado al formulario */
+            background: #ffde7a;
+            width: 420px;
+            border-radius: 20px;
+            border: 1px solid #000000;
+            padding: 20px;
+        }
+
+        .correcto { /* Estilo correspondiente a las validaciones correctas (fondo y bordes en verde) */
+            border: solid 2px #1ec112;
+            background-color: #92ff8a;
+        }
+        
+        .error { /* Estilo correspondiente a las validaciones incorrectas (fondo y bordes en rojo) */
+            border: solid 2px #ff0000;
+            background-color: #ff8a8a;
+        }
+
+        .resultadoError{ /* Estilo correspondiente a los datos erróneos en la salida de información (div del resultado) */
+            width:fit-content;
+            border-radius: 20px;
+            padding: 15px 25px;
+            border: 1px solid #ff0000;
+        }
+        .resultadoCorrecto {  /* Estilo correspondiente a los datos correctos en la salida de información (div del resultado) */
+            width: fit-content;
+            border-radius: 20px;
+            padding: 15px 25px;
+            border: solid 2px #1ec112;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h2>Festival anual de cine malo, pero malísimo - Cuarta tarea de Desarrollo Web en Entorno Cliente</h2>
+        <h2>Luis Ginés Casanova de Utrilla</h2>
+    </header>
+    <hr>
+    <br>
+    <a href="index.html">Volver a la página principal</a>
+    <br>
+    <br>
+    <h2>Formulario de inscripción</h2>
+    <fieldset>
+        <form name="formulario" id="formulario" action="" method="get">
+            <label for="nombre">Nombre y primer apellido:</label>
+            <input type="text" name="nombre" id="nombre"/>
+            <label for="codigo">Código de invitación:</label>
+            <input type="text" name="codigo" id="codigo" />
+            <label for="contrasenia">Contraseña:</label>
+            <input type="text" name="contrasenia" id="contrasenia" />
+            <label for="repetirContrasenia">Repetir contraseña:</label>
+            <input type="password" name="repetirContrasenia" id="repetirContrasenia" />
+            <input type="button" name = "verContrasenia" id="verContrasenia" value="Ver" />
+            <label for="generoFavorito">Género favorito:</label>
+            <input list="generoEleccion" id="generoFavorito" name="generoFavorito" />
+            <datalist id="generoEleccion">
+                <option value="Accion"></option>
+                <option value="Thriller"></option>
+                <option value="Comedia"></option>
+                <option value="Catastrofe"></option>
+                <option value="Ciencia Ficcion"></option>
+                <option value="Fantasia"></option>
+                <option value="Documentales"></option>
+                <option value="Aventura"></option>
+                <option value="Superheroes"></option>
+            </datalist>
+            <input type="reset" name="reiniciar" id="reiniciar" value="Reiniciar" />
+            <input type="submit" name="enviar" id="enviar" value="Enviar" />
+        </form>
+    </fieldset>
+    <br>
+    <div name="resultado" id="resultado"></div>
+</body>
+
+</html>
