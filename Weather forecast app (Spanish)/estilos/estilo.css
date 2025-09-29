@@ -1,0 +1,125 @@
+/* Luis Ginés Casanova de Utrilla - DWEC */
+
+/* Estilo del body */
+body {
+    background-color: rgb(221, 255, 255);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Estilo de nuestro encabezado */
+header {
+    background-color: #7ac5ff;
+    color: #293250;
+    padding: 5px 25px;
+}
+
+/* Estilo de la sección main del documento */
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+/* Estilo de las etiquetas */
+label {  
+    font-weight: bold;
+}
+
+/* Estilo y dimensiones para los inputs y posibles select */
+input {
+    margin: 5px;
+    padding: 5px;
+}
+
+/* Estilo y dimensiones para el espacio dedicado al formulario */
+fieldset {
+    background: #7ac5ff;
+    width: 300px;
+    border-radius: 20px;
+    border: 2px solid #000865;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Estilo general para los botones y pequeñas especificaciones para cada uno según su ID */
+.botones {
+    padding: 15px 25px;
+    border-radius: 20px;
+    text-align: center;
+}
+
+#tiempoActual {
+    font-size: 1em;
+    background-color: hsl(0, 0%, 96%);
+    color: #000865;
+    border: 4px solid #000865;
+}
+
+#tiempoFuturo {
+    font-size: 0.9em;
+    background-color: #a4f1f8;
+    color: #000865;
+    border: 2px solid #000865;
+}
+
+#geolocalizacion {
+    font-size: 0.9em;
+    background-color: #d4f8a4;
+    color: #000865;
+    border: 2px solid #00652a;
+}
+
+/* Estilo para la previsión del día actual */
+.previsionActual {
+    background-color: #f8f8f8;
+    color: #0a3641;
+    width: 500px;
+    height: 100%;
+    border-radius: 20px;
+    border: 5px solid #032c38;
+    padding: 10px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Estilo para la previsión de los tres días */
+.previsionFutura {
+    background-color: #d6d6d6;
+    width: 500px;
+    height: 100%;
+    border-radius: 20px;
+    border: 2px solid #858585;
+    padding: 10px;
+    text-align: center;
+    margin-top: 10px;
+    margin-left: 5px;
+}
+
+/* Estilo de error en la previsión */
+.previsionFallida {
+    background-color: #f74b4b;
+    color: #ffffff;
+    width: 500px;
+    border-radius: 20px;
+    border: 5px solid #380303;
+    padding: 10px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Span para colocar el texto justificado a la izquierda */
+.textoIzquierda {
+    text-align: left;
+}
+
+/* Estilo del mapa */
+#mapa {
+    margin-top: 10px;
+    margin-left: 5px;
+    width: 500px;
+    height: 500px;
+    border-radius: 20px;
+    border: 5px solid #00a0ac;
+}
